@@ -39,20 +39,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
 
   },
-  heroImage: {
-    width: '100%',
-    height: 300,
-  },
-  button: {
-    borderWidth: 1,
-    borderColor: '#fff',
-    width: 310,
-    height: 60,
-    borderRadius: 8,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   pickerStyles: {
     width: '30%',
     backgroundColor: 'transparent',
