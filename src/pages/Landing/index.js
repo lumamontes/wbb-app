@@ -14,7 +14,7 @@ export default function Landing({ navigation }) {
         }}
       />
       <TextBold size={38} > Explore information about women's basketball </TextBold>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Inicio')}>
         <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%' }}>
           <Text style={{ color: 'white', fontSize: 26 }}>Explore</Text>
           <MaterialCommunityIcons name="chevron-triple-right" size={24} color="white" />

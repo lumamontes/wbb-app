@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Landing from './src/pages/Landing';
 import Home from './src/pages/Home';
 import Rankings from './src/pages/Rankings';
-// import Landing from './src/pages/Landing';
+import Inicio from './src/pages/Inicio';
 
 import Routes from './src/routes';
 
@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <>
-      {/* <NavigationContainer>
+      <NavigationContainer>
         <Stack.Navigator initialRouteName="Landing">
           <Stack.Screen
             name="Landing"
@@ -25,6 +25,11 @@ function App() {
             options={{
               headerShown: false,
             }}
+          />
+          <Stack.Screen name="Inicio" component={Inicio}
+          options={{
+            headerShown: false,
+          }}
           />
           <Stack.Screen name="Home" component={Home}
           // options={{
@@ -34,11 +39,9 @@ function App() {
           <Stack.Screen name="Rankings" component={Rankings} />
         </Stack.Navigator>
 
-      </NavigationContainer> */}
+      </NavigationContainer> 
 
-      <NavigationContainer >
-        <Routes/>
-      </NavigationContainer>
+
 
     </>
 

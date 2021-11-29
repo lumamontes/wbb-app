@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Ionicons } from '@expo/vector-icons';
 
+import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Rankings from './pages/Rankings';
 import dailySchedule from './pages/dailySchedule';
@@ -13,7 +14,7 @@ const Tab = createBottomTabNavigator();
 export default function Routes() {
     return (
         <Tab.Navigator
-            screenOptions={{
+        screenOptions={{
                 tabBarStyle: {
                     backgroundColor: '#2B2B2B',
                     borderTopColor: 'transparent',

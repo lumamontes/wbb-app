@@ -5,11 +5,11 @@ import Routes from '../../routes';
 
 import { NavigationContainer } from '@react-navigation/native';
 
-export default function Home({navigation}) {
+export default function Inicio() {
   return (
-    <View style={styles.container}>
-       <TextBold size={38} > Home </TextBold>
-     </View>
+    <>
+    <Routes/>
+     </>
   );
 }
 
