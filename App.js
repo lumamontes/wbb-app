@@ -10,27 +10,39 @@ import Home from './src/pages/Home';
 import Rankings from './src/pages/Rankings';
 // import Landing from './src/pages/Landing';
 
+import Routes from './src/routes';
+
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer headerShown={false} >
-      <Stack.Navigator initialRouteName="Landing">
-        <Stack.Screen
-          name="Landing"
-          component={Landing}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen name="Home" component={Home}
+    <>
+      {/* <NavigationContainer>
+        <Stack.Navigator initialRouteName="Landing">
+          <Stack.Screen
+            name="Landing"
+            component={Landing}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen name="Home" component={Home}
           // options={{
           //   headerShown: false,
           // }}
-        />
-        <Stack.Screen name="Rankings" component={Rankings} />
-      </Stack.Navigator>
-    </NavigationContainer>
+          />
+          <Stack.Screen name="Rankings" component={Rankings} />
+        </Stack.Navigator>
+
+      </NavigationContainer> */}
+
+      <NavigationContainer >
+        <Routes/>
+      </NavigationContainer>
+
+    </>
+
+
   );
 }
 
