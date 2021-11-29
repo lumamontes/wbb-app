@@ -14,13 +14,21 @@ const Tab = createBottomTabNavigator();
 export default function Routes() {
     return (
         <Tab.Navigator
-        screenOptions={{
+            screenOptions={{
                 tabBarStyle: {
                     backgroundColor: '#2B2B2B',
                     borderTopColor: 'transparent',
                 },
                 tabBarActiveTintColor: '#B3384D',
                 tabBarShowLabel: false,
+                headerStyle: {
+                    backgroundColor: '#1E1E1E',
+                    height: 100,
+                },
+                headerTitleStyle: {
+                    color: '#FFFFFF'
+
+                }
             }}
         >
             <Tab.Screen
@@ -52,8 +60,8 @@ export default function Routes() {
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="podium" size={size} color={color} />
                     ),
+                    title: 'Ranking'
                 }}
-
             />
         </Tab.Navigator>
     )
