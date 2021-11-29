@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image, TouchableOpacity } from 'react-native';
 import TextBold from '../../../src/components/TextBold'
-import Routes from '../../routes';
 
-import { NavigationContainer } from '@react-navigation/native';
+import HomeCard from '../../components/HomeCard';
+import { Picker } from '@react-native-picker/picker';
 
-export default function Home({navigation}) {
+const leagues = ['Ncaaw'];
+
+export default function Home({ navigation }) {
+  const [league, setLeague] = useState();
+  const handleValueChange = (itemValue, itemIndex) => setLeague(itemValue)
+
   return (
     <View style={styles.container}>
-       <TextBold size={38} > Home </TextBold>
-     </View>
+      <Picker
+        mode={'dropdown'}
+        dropdownIconColor={'white'}
+        selectedValue={league}
+        style={styles.pickerStyles}
+        onValueChange={handleValueChange}>
+        {
+          leagues.map(league => <Picker.Item key={league} label={league} value={league} />)
+        }
+      </Picker>
+      <HomeCard background='#B3384D' url='https://imgur.com/3AYcMVm.jpg' text='Daily Schedule' />
+      <HomeCard background='#E38B99' url='https://imgur.com/ABqirT5.jpg' text='Season Schedule' />
+      <HomeCard background='#5E1D28' url='https://imgur.com/zX2Fgvz.jpg' text='Ranking' />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#1E1E1E',
     color: 'white',
     alignItems: 'center',
     justifyContent: 'space-evenly',
@@ -35,6 +52,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  pickerStyles: {
+    width: '30%',
+    backgroundColor: 'transparent',
+    color: 'white'
   }
 
 });
