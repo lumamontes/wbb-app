@@ -17,7 +17,7 @@ export default function (props) {
         return <AppLoading />;
       } else {
     return (
-        <Text style={{fontFamily:'Poppins_700Bold', color: 'white' , fontSize: props.size }} {...props}>{props.children}</Text>
+        <Text style={{fontFamily:'Poppins_700Bold', color: 'black' , fontSize: props.size }} {...props}>{props.children}</Text>
     )
       }
 }
