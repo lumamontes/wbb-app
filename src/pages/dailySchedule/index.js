@@ -1,12 +1,37 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableHighlight, Image, TouchableOpacity } from 'react-native';
 import TextBold from '../../../src/components/TextBold'
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import DailyCard from '../../components/DailyCard';
 
 export default function dailySchedule() {
   return (
     <View style={styles.container}>
-      <TextBold size={38} > daily schedule </TextBold>
+      <View style={{ flexDirection: 'row', width: '90%', justifyContent: 'space-between', flex: 0.2 }}>
+        <TextBold size={24} > November 27 </TextBold>
+        <TouchableOpacity>
+          <Ionicons name="help-circle-outline" size={40} color={'#F8F8F8'} />
+        </TouchableOpacity>
+      </View>
+      <View style={{ flex: 0.7 }}>
+        <DailyCard border="#8FFB8D" time="14:00pm" teams="RUTGER x UMASS" channel="Espn+" >
+          <Ionicons name="checkmark-circle-outline" size={20} color={'#000000'} />
+        </DailyCard>
+
+        <DailyCard border="#8FFB8D" time="14:00pm" teams="RUTGER x UMASS" channel="Espn+" >
+          <Ionicons name="checkmark-circle-outline" size={20} color={'#000000'} />
+        </DailyCard>
+
+        <DailyCard border="#8FFB8D" time="14:00pm" teams="RUTGER x UMASS" channel="Espn+" >
+          <Ionicons name="checkmark-circle-outline" size={20} color={'#000000'} />
+        </DailyCard>
+
+        <DailyCard border="#8FFB8D" time="14:00pm" teams="RUTGER x UMASS" channel="Espn+" >
+          <Ionicons name="checkmark-circle-outline" size={20} color={'#000000'} />
+        </DailyCard>
+        
+      </View>
     </View>
   );
 }

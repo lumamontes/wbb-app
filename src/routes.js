@@ -46,6 +46,7 @@ export default function Routes() {
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="today-outline" size={size} color={color} />
                     ),
+                    title: 'Daily Schedule'
                 }}
             />
             <Tab.Screen name="seasonSchedule" component={seasonSchedule}
