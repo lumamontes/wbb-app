@@ -4,12 +4,11 @@ import TextBoldBlack from '../TextBoldBlack';
 import TextBold from '../TextBold';
 
 export default function (props) {
-    // mover para flatList
     return (
         <View style={{
             width: '100%', height:
                 50, backgroundColor: props.back, display: "flex", flexDirection: "row", alignItems: 'center',
-                justifyContent: 'space-around'
+                justifyContent: 'space-between',padding: 10
         }}>
             <View style={styles.numberContainer}>
                 <TextBold> {props.rank}</TextBold>
