@@ -3,7 +3,7 @@ import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
 
 
 
-export default function seasonSchedule() {
+export default function SeasonSchedule() {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>

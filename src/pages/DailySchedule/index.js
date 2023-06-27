@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TouchableHighlight, Image, Pressable, Modal, Text } from 'react-native';
-import TextBold from '../../../src/components/TextBold'
+import TextBold from '../../components/TextBold'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import DailyCard from '../../components/DailyCard';
 import Icon from '../../components/Icon';
 
-export default function dailySchedule() {
+export default function DailySchedule() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (

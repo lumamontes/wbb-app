@@ -13,8 +13,18 @@ export default function (props) {
             <View style={styles.numberContainer}>
                 <TextBold> {props.rank}</TextBold>
             </View>
-            <TextBoldBlack size={18}  > {props.team}</TextBoldBlack>
-            <TextBoldBlack size={18}  > {props.votes} votes</TextBoldBlack>
+            {props.votes > 0 ? (
+                <>
+                    <TextBoldBlack size={18}  > {props.team}</TextBoldBlack>
+                <TextBoldBlack size={18}  > {props.votes} votes</TextBoldBlack>
+                </>
+            ): (
+                <>
+                <TextBoldBlack size={18}  > {props.team}</TextBoldBlack>
+                <TextBoldBlack size={18} >  </TextBoldBlack>
+                </>
+            )}
+
         </View>
     )
 }

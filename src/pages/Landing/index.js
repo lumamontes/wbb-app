@@ -13,7 +13,7 @@ export default function Landing({ navigation }) {
           uri: 'https://i.imgur.com/vYqQYFq.png',
         }}
       />
-      <TextBold size={38} > Explore information about women's basketball </TextBold>
+      <TextBold size={38} > Explore W basketball infos </TextBold>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Inicio')}>
         <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%' }}>
           <Text style={{ color: 'white', fontSize: 26 }}>Explore</Text>

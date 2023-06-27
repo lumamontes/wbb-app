@@ -5,7 +5,7 @@ import TextBold from '../../../src/components/TextBold'
 import HomeCard from '../../components/HomeCard';
 import { Picker } from '@react-native-picker/picker';
 
-const leagues = ['Ncaaw'];
+const leagues = ['NcaaWBB', 'LBF (soon)'];
 
 export default function Home({ navigation }) {
   const [league, setLeague] = useState();
@@ -20,7 +20,7 @@ export default function Home({ navigation }) {
         style={styles.pickerStyles}
         onValueChange={handleValueChange}>
         {
-          leagues.map(league => <Picker.Item key={league} label={league} value={league} />)
+          leagues.map(league => <Picker.Item key={league} label={league} value={league} enabled={league == "LBF" ? false : true} />)
         }
       </Picker>
       <HomeCard background='#B3384D' url='https://imgur.com/3AYcMVm.jpg' text='Daily Schedule' />
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
 
   },
   pickerStyles: {
-    width: '30%',
-    backgroundColor: 'transparent',
+    width: '50%',
+    // backgroundColor: 'white',
     color: 'white'
   }
 

@@ -1,64 +1,78 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Image, TouchableOpacity, Button, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, Image, TouchableOpacity, Button, FlatList, ActivityIndicator } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextBold from '../../../src/components/TextBold'
 import TextBoldBlack from '../../../src/components/TextBoldBlack'
 import RankCard from '../../components/RankCard'
 import api from '../../services/api';
 export default function Rankings() {
-  const [rankings, setRankings] = useState({});
-
+  const [rankings, setRankings] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [year, setYear] = useState(2022);
   const LoadRankings = async () => {    // try{
     try {
-      const response = await api.get(`polls/US/2021/rankings.json?api_key=x4c6asbawqk5zw9uswgm3aqh`);
-      const teste = await response.data;
-      const { year, week, effective_time, rankings } = teste;
-      setRankings(rankings);
+      const response = await api.get(`polls/AP/${year}/rankings.json?api_key=tskk7v3wq7cnp6dhjafgp3h4`);
+      setRankings(response.data);
     } catch (err) {
       console.log(err);
+      setError(err)
+    } finally {
+      setIsLoading(false);
     }
   }
+
   useEffect(() => {
     LoadRankings();
-  }, [])
+  }, [year])
+
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="#B3384D" />
+      </View>
+    )
+  }
+
+  if (error) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="#B3384D" />
+      </View>
+    )
+  }
+  if (rankings?.rankings?.length > 0) {
+    return (
+      <View style={styles.container}>
+        <TextBold size={18}>USA Today Coaches Poll</TextBold>
+        <View style={styles.rankingsContainer}>
+          <View>
+            <FlatList
+              data={rankings.rankings}
+              keyExtractor={ranking => String(ranking.id)}
+              showsVerticalScrollIndicator={false}
+              renderItem={({item, index}) =>
+              (
+                <View key={index}>
+                  <RankCard team={item.market} back="#D8D8D8" votes={item.fp_votes} rank={item.rank} />
+                </View>
+              )
+              }
+            >
+
+            </FlatList>
+          </View>
+        </View>
+      </View >
+    );
+  }
+
 
   return (
     <View style={styles.container}>
-      <TextBold size={18}>USA Today Coaches Poll</TextBold>
-      <View style={styles.rankingsContainer}>
-        <View style={styles.firstContent}>
-          <TextBoldBlack>1
-              {/* <MaterialCommunityIcons name="crown" color='#B3384D' size={50}  /> */}
-          </TextBoldBlack>
-          <Image
-            style={styles.firstRankedLogo}
-            source={{
-              uri: 'https://imgur.com/VDMSnH8.jpg',
-            }}
-          />
-          <TextBoldBlack>{rankings[0].market} </TextBoldBlack>
-          <TextBoldBlack>{rankings[0].fp_votes} Votes</TextBoldBlack>
-        </View>
-
-        <View>
-          <FlatList
-            data={rankings.slice(1, 25)}
-            keyExtractor={ranking => String(ranking.id)}
-            showsVerticalScrollIndicator={false}
-            renderItem={({ item: ranking }) => 
-            (
-              <View>
-              <RankCard team={ranking.market} back="#D8D8D8" votes={ranking.fp_votes} rank={ranking.rank} />
-             </View>
-            )}
-          >
-
-
-          </FlatList>
-        </View>
-      </View>
-    </View >
-  );
+        <Text style={{"color" : "white"}}>No results found!</Text>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
